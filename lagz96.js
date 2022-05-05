@@ -5,10 +5,15 @@ w96.util.requestTerminal=async function () {
   return await rt.apply(w96.util,arguments);
 };
 
-var {readdir,readbin,writebin,walk,stat}=w96.FS;
+var {readdir,readbin,writebin,walk,stat,readBinChunk}=w96.FS;
 w96.FS.readdir=async function(a,b){
   await w96.util.wait(1000); /* slow down FS */;
   return await readdir.call(w96.FS,a,b);
+}
+  
+  w96.FS.readBinChunk=async function(a,b,c){
+  await w96.util.wait(1000); /* slow down FS */;
+  return await readBinChunk.call(w96.FS,a,b,c);
 }
   
 w96.FS.readbin=async function(a,b){
@@ -43,4 +48,4 @@ var oe=window.onerror;
   }
   
 };
-main();
+setTimeout(main,5000);
