@@ -8,17 +8,17 @@ w96.util.requestTerminal=async function () {
 var {readdir,readbin,writebin,walk,stat}=w96.FS;
 w96.FS.readdir=async function(a,b){
   await w96.util.wait(1000); /* slow down FS */;
-  return await readdir.call(w96.FSa,b);
+  return await readdir.call(w96.FS,a,b);
 }
   
 w96.FS.readbin=async function(a,b){
   await w96.util.wait(1000); /* slow down FS */;
-  return await readbin.call(w96.FSa,b);
+  return await readbin.call(w96.FS,a,b);
 }
 
 w96.FS.writebin=async function(a,b){
   await w96.util.wait(1000); /* slow down FS */;
-  return await writebin.call(w96.FSa,b);
+  return await writebin.call(w96.FS,a,b);
 }
 
 w96.FS.walk=async function(a,b){
